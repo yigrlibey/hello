@@ -65,8 +65,6 @@ EXPOSE ${PORT:-8000}
 # 如果应用需要第二个端口
 EXPOSE 9000
 
-# 创建数据目录
-RUN mkdir -p /data/conf && chown appuser:appuser /data/conf
+VOLUME /data/conf
 
-# 启动命令，使用Render的PORT环境变量
-CMD ["./server", "-conf", "/data/conf", "-port", "${PORT:-8000}"]
+CMD ["./server", "-conf", "/data/conf"]
