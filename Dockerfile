@@ -30,10 +30,8 @@ ARG BUILD_TIME=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 # RUN GOPROXY=https://goproxy.cn VERSION=${VERSION} COMMIT=${COMMIT} make build
 
 # 方式2：直接使用go build（推荐，更稳定）
-RUN CGO_ENABLED=0 GOOS=linux go build \
-    -ldflags="-s -w -X main.Version=${VERSION} -X main.Commit=${COMMIT} -X main.BuildTime=${BUILD_TIME}" \
-    -o ./bin/server \
-    ./cmd/server
+RUN CGO_ENABLED=0 GOOS=linux go build -o ./bin/server ./cmd/server
+
 
 # 最终运行镜像
 FROM debian:stable-slim
