@@ -61,7 +61,7 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
     CMD curl -f http://localhost:${PORT:-8000}/health || exit 1
 
 # 暴露端口（Render会动态分配端口，通过PORT环境变量传递）
-EXPOSE ${PORT:-8000}
+EXPOSE ${PORT:-80}
 # 如果应用需要第二个端口
 EXPOSE 9000
 
