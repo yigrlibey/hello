@@ -17,9 +17,6 @@ RUN GOPROXY=https://goproxy.cn go mod download
 # 复制所有源代码
 COPY . .
 
-# 修复可能的版本问题
-RUN sed -i 's/^go 1\.24\.[0-9]*$/go 1.24/' go.mod 2>/dev/null || true
-
 # 设置构建参数以避免git依赖
 ARG VERSION=1.0.0
 ARG COMMIT=render-build
