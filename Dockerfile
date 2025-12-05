@@ -65,6 +65,6 @@ EXPOSE ${PORT:-8000}
 # 如果应用需要第二个端口
 EXPOSE 9000
 
-VOLUME /data/conf
+# VOLUME /data/configs
 
-CMD ["./server", "-conf", "/data/conf"]
+CMD ["./server", "-conf", "/app/configs"]
